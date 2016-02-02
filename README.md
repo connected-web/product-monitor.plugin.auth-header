@@ -3,16 +3,21 @@ Adds certificate based authentication to product monitor, enables the secure pag
 
 ## Example
 Create `config/plugins/auth-header.json` in your `product-monitor` project:
+
 ```json
 {
     "library": "product-monitor.plugin.auth-header",
     "config": {
-        "email": "Email=([A-z0-9._%+-]+@[A-z0-9.-]+\\.[A-z]{2,}),",
-        "name": "CN=([A-z ()]+),",
-        "org-unit": "OU=([A-z ()-]+),",
-        "org": "O=([A-z ()-]+),",
-        "location": "L=([A-z ()-]+),",
-        "country": "C=([A-z ()-]+)"
+        "field": "sslcertsubject",
+        "matchers": {
+            "email": "Email=([A-z0-9._%+-]+@bbc\\.co\\.uk),",
+            "name": "CN=([A-z ()]+),",
+            "org-unit": "OU=([A-z ()-]+),",
+            "org": "O=([A-z ()-]+),",
+            "location": "L=([A-z ()-]+),",
+            "country": "C=([A-z ()-]+)"
+        },
+        "required": ["email", "name"]
     }
 }
 ```
@@ -50,7 +55,6 @@ Returns the config applied to the plugin.
 Changes the config applied to the plugin.
 
 ## Change Log
-
 ### 1.0.0
 - Initial release
 - Added exception for `http://localhost/`

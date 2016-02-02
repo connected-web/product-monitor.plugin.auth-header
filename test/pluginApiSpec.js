@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var plugin = require('../lib/plugin.js');
+var plugin = require('../lib/plugin');
 
 describe('Plugin API', function() {
 
