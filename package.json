@@ -1,0 +1,26 @@
+{
+    "name": "product-monitor.plugin.auth-header",
+    "version": "1.0.0",
+    "description": "Auth plugin based on supplied SSL headers, assumes Apache HTTPS security infront of request",
+    "main": "lib/plugin.js",
+    "dependencies": {
+        "lodash": "^4.0.0",
+        "passport": "^0.3.2",
+        "passport-strategy": "^1.0.0"
+    },
+    "devDependencies": {
+        "chai": "^3.4.1",
+        "mocha": "^2.3.4"
+    },
+    "scripts": {
+        "test": "node node_modules/mocha/bin/mocha"
+    },
+    "keywords": [
+        "product-monitor",
+        "plugin",
+        "users",
+        "auth"
+    ],
+    "author": "John Beech",
+    "license": "ISC"
+}
