@@ -7,12 +7,15 @@ Create `config/plugins/auth-header.json` in your `product-monitor` project:
 {
     "library": "product-monitor.plugin.auth-header",
     "config": {
-        "email": "Email=([A-z0-9._%+-]+@[A-z0-9.-]+\\.[A-z]{2,}),",
-        "name": "CN=([A-z ()]+),",
-        "org-unit": "OU=([A-z ()-]+),",
-        "org": "O=([A-z ()-]+),",
-        "location": "L=([A-z ()-]+),",
-        "country": "C=([A-z ()-]+)"
+        "field": "sslclientcertsubject",
+        "matchers": {
+            "email": "Email=([A-z0-9._%+-]+@[A-z0-9.-]+\\.[A-z]{2,}),",
+            "name": "CN=([A-z ()]+),",
+            "org-unit": "OU=([A-z ()-]+),",
+            "org": "O=([A-z ()-]+),",
+            "location": "L=([A-z ()-]+),",
+            "country": "C=([A-z ()-]+)"
+        }
     }
 }
 ```
@@ -49,7 +52,17 @@ Returns the config applied to the plugin.
 ### plugin.setConfig(pluginConfig)
 Changes the config applied to the plugin.
 
+### Testing without a certificate
+Once integrated, using curl:
+```
+curl -X GET -H "sslclientcertsubject: Email=test.email@address.com, CN=Test User" http://localhost:8080/auth/status
+```
+
 ## Change Log
+
+### 1.1.1
+- Update documentation in README.md
+- Fix integration issue trying to access `app.users.findUsersBy`
 
 ### 1.1.0
 - Add support to merge local user information based on email address
