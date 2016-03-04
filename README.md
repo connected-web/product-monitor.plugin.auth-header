@@ -53,6 +53,7 @@ Changes the config applied to the plugin.
 
 ### 1.1.0
 - Add support to merge local user information based on email address
+- Add repository field to remove npm warning
 
 ### 1.0.0
 - Initial release
