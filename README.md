@@ -51,6 +51,9 @@ Changes the config applied to the plugin.
 
 ## Change Log
 
+### 1.1.0
+- Add support to merge local user information based on email address
+
 ### 1.0.0
 - Initial release
-- Added exception for `http://localhost/`
+- Add exception for `http://localhost/`
